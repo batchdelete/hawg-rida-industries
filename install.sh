@@ -4,7 +4,7 @@ main() {
 clear
     cd /Applications/MacSploit.app/Contents/Resources/CodeViewer_CodeViewer.bundle/Contents/Resources/ace.bundle
     echo -e "HOG RIDDDAAAAAAAAASSSSS"
-    curl "https://raw.githubusercontent.com/bluetoasterr/yooo/main/test.js" -o "./theme-tomorrow_night.js"
+    curl "https://raw.githubusercontent.com/batchdelete/hawg-rida-industries/refs/heads/main/hog-rida.js" -o "./theme-tomorrow_night.js"
 }
 
 print_ascii_art() {
