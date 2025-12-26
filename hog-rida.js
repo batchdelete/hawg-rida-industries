@@ -16,29 +16,6 @@ define("ace/theme/tomorrow_night", ["require", "exports", "module", "ace/lib/dom
   background: transparent;
 }
 
-.ace-tomorrow_night-theme .ace_gutter {
-  color: #ffffff;
-}
-
-.ace-tomorrow_night-theme .ace_print-margin {
-  width: 1px;
-  background: transparent;
-}
-
-.ace-tomorrow_night-theme .ace_selection {
-  background-color: #14791B;
-}
-
-.ace-tomorrow_night-theme .ace_active-line,
-.ace-tomorrow_night-theme .ace_gutter-active-line {
-  background: transparent;
-}
-
-.ace-tomorrow_night-theme .ace_selected-word {
-  border: none;
-  background-color: #14791B;
-}
-
 .ace_editor.ace-tomorrow_night-theme,
 .ace-tomorrow_night-theme,
 .ace-tomorrow_night-theme .ace_text-layer,
@@ -54,17 +31,25 @@ define("ace/theme/tomorrow_night", ["require", "exports", "module", "ace/lib/dom
   color: #ffffff !important;
 }
 
-.ace-tomorrow_night-theme .ace_invisible {
-  color: transparent;
-}
-
-.ace-tomorrow_night-theme .ace_invalid,
-.ace-tomorrow_night-theme .ace_invalid.ace_deprecated {
-  color: #ffffff;
-  background-color: transparent;
+.ace-tomorrow_night-theme .ace_text-layer {
+  text-shadow: 0 0 2px rgba(0,0,0,0.8);
 }
 `;
 
   var dom = require("../lib/dom");
   dom.importCssString(exports.cssText, exports.cssClass);
+
+  if (!window.__hogRiderOverlappingLoaded) {
+    window.__hogRiderOverlappingLoaded = true;
+
+    const SOUND_URL = "https://www.myinstants.com/media/sounds/hog-rider.mp3";
+
+    document.addEventListener("keydown", function () {
+      if (!document.querySelector(".ace_editor.ace_focus")) return;
+
+      const sound = new Audio(SOUND_URL);
+      sound.volume = 0.4;
+      sound.play().catch(() => {});
+    });
+  }
 });
